@@ -200,6 +200,23 @@ game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Plate",ew60we)
 end
 end)
 
+Section:NewLabel("God Mode")
+
+Section:NewToggle("Give Yourself", "Give yourself GodMode", false,function(cwe)
+    getgenv().trggewinkets = cwe
+while wait() do
+if getgenv().trggewinkets then
+    pcall(function()
+           local A_1 = "RevivePlayer"
+           local A_2 = game:GetService("Workspace")[game.Players.LocalPlayer.Name]
+           local A_3 = game:GetService("Workspace").ObjectSelection.DownedPart.DownedPart
+           local Event = game:GetService("ReplicatedStorage").Event
+           Event:FireServer(A_1, A_2, A_3)
+end)
+end
+end
+end)
+
 local Tab = window:NewTab("Gun Mods")
 
 Section:NewButton("Infinite Ammo", "Give infinite Ammo", function()
