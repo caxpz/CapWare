@@ -30,21 +30,12 @@ Section:NewSlider("JumpPower", "JumpPower", 500, 0, function(s) -- 500 (MaxValue
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
-Section:NewToggle("Noclip", "Noclip", function(boolrfq)
-    getgenv().trfffffinketcs = boolrfq
-        game:GetService("RunService").RenderStepped:Connect(function()
-if getgenv().trfffffinketcs then
-        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-end
-end)
-end)
-
 Section:NewButton("Loop Remove Name", "Remove your name", function()
     game:GetService("RunService").RenderStepped:Connect(function()
 game.Players.LocalPlayer.Character.NameTag:Destroy()
 end)
     game:GetService("StarterGui"):SetCore("SendNotification",{     
-Title = "Attention",     
+Title = "Caxp",     
 Text = "Your name is no longer visible to players",
 Duration = 15, })
 end)
@@ -123,7 +114,7 @@ end)
 Section:NewButton("Get Deathray", "Give you Deathray", function()
     if game.ReplicatedStorage.HeistStatus.Pyramid.Locked.Value == true then
             game:GetService("StarterGui"):SetCore("SendNotification",{     
-Title = "Get Deathray Script",     
+Title = "Caxp",     
 Text = "Wait to Pyramid Open Again",
 Duration = 10, })
 else
