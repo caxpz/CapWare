@@ -30,6 +30,12 @@ Section:NewSlider("JumpPower", "JumpPower", 500, 0, function(s) -- 500 (MaxValue
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
+Section:NewToggle("Fly", "Fly", function(_G.Speed)
+    game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = _G.Speed
+end
+end)
+
 Section:NewButton("Loop Remove Name", "Remove your name", function()
     game:GetService("RunService").RenderStepped:Connect(function()
 game.Players.LocalPlayer.Character.NameTag:Destroy()
