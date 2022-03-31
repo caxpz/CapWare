@@ -217,6 +217,8 @@ end
 end
 end)
 
+local Tab = window:NewTab("Gun Mods")
+
 Section:NewButton("Infinite Ammo", "Give infinite Ammo", function()
     game:GetService("RunService").RenderStepped:Connect(function()
 local function main(v)
@@ -227,8 +229,6 @@ local function main(v)
        end
    end
 end
-
-local Tab = window:NewTab("Gun Mods")
 
 for _, v in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do main(v) end
 for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do main(v) end
