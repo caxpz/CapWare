@@ -30,7 +30,7 @@ Section:NewSlider("JumpPower", "JumpPower", 500, 0, function(s) -- 500 (MaxValue
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
-Section:NewToggle("Noclip", "Noclip", false, function(boolrfq)
+Section:NewToggle("Noclip", "Noclip", function(boolrfq)
     getgenv().trfffffinketcs = boolrfq
         game:GetService("RunService").RenderStepped:Connect(function()
 if getgenv().trfffffinketcs then
