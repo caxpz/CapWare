@@ -190,7 +190,7 @@ end
 end
 end)
 
-local Tab = window:NewTab("Teleports")
+local tab = window:NewTab("Teleports")
 
 Section:NewButton("Teleport To Drop", "Teleport to Drop", function()
         if game.Workspace.Train ~= nil then
