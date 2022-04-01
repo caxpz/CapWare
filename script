@@ -25,7 +25,7 @@ Section:NewLabel("Grenade Spam")
 Section:NewButton("Grenade Spam", "Grenade Spam", function()
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Grenade") == nil then
            game:GetService("StarterGui"):SetCore("SendNotification",{     
-Title = "Attention",     
+Title = "Caxp",     
 Text = "You need have Grenade in your inventory",
 Duration = 15, })
 else
