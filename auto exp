@@ -1,3 +1,4 @@
+Section:NewToggle("Farm Exp", "Auto Farm Exp Rejoin After use", function()
     game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("SetTeam", "Police")
 wait(.10)
 game:GetService("RunService").RenderStepped:Connect(function()
