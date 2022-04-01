@@ -268,8 +268,7 @@ Section:NewKeybind("ToggleUi", "ToggleUi", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
 
-for theme, color in pairs(themes) do
-    Section:NewColorPicker(theme, "Change your "..theme, color, function(color3)
+Section:NewColorPicker(theme, "Change your "..theme, color, function(color3)
         Library:ChangeColor(theme, color3)
     end)
 end
