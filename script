@@ -536,7 +536,7 @@ end)
 Section:NewButton("Ship", "Rob Ship", function()
     if game.Workspace.Ship.Boat.Vault == nil then
         game:GetService("StarterGui"):SetCore("SendNotification",{     
-Title = "Ship Rob Script",     
+Title = "Caxp",     
 Text = "Wait to Ship Come",
 Duration = 15, })
 else
