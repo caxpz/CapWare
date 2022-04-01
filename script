@@ -262,7 +262,7 @@ end)
 
 local Tab = window:NewTab("Troll")
 
-Section:NewLabel("Grenade Script")
+Section:NewLabel("Grenade Spam")
 
 Section:NewButton("Grenade Spam", "Grenade Spam", function()
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Grenade") == nil then
@@ -291,7 +291,7 @@ end
 end)
 
            game:GetService("StarterGui"):SetCore("SendNotification",{     
-Title = "Attention",     
+Title = "Caxp",     
 Text = "Add Bomb Amount To Script Work, Press F to Drop Bomb",
 Duration = 15, })
 for i = 1,100 do
