@@ -5,21 +5,16 @@ local window = Library.CreateLib("Caxp MadCity", "Ocean")
 local Tab = window:NewTab("Main")
 local Section = Tab:NewSection("Auto Farm Exp")
 local Section2 = Tab:NewSection(" 1 Time Auto Rob")
-
 local Tab2 = window:NewTab("Extra")
 local Section3 = Tab:NewSection("Grenade Spam")
 local Section4 = Tab:NewSection("WalkSpeed")
 local Section5 = Tab:NewSection("GodMode")
-
 local Tab3 = window:NewTab("Car Mods")
 local Section6 = Tab:NewSection("Car Mods")
-
 local Tab4 = window:NewTab("Teleports")
 local Section7 = Tab:NewSection("Teleports")
-
 local Tab5 = window:NewTab("Gun Mods")
 local Section8 = Tab:NewSection("Gun Mods")
-
 local Tab6 = window:NewTab("Credit")
 local Section9 = Tab:NewSection("Created by caxpzo#0068")
 
