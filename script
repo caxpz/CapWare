@@ -1,6 +1,6 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local window = Library.CreateLib("Caxp MadCity", "Synapse")
+local window = Library.CreateLib("Caxp MadCity", "Ocean")
 
 local Tab = window:NewTab("Main")
 
