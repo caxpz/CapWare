@@ -3,21 +3,25 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local window = Library.CreateLib("Caxp MadCity", "Ocean")
 
 local Tab = window:NewTab("Main")
-local Tab1 = window:NewTab("Extra")
-local Tab2 = window:NewTab("Car Mods")
-local Tab3 = window:NewTab("Teleports")
-local Tab4 = window:NewTab("Gun Mods")
-local Tab5 = window:NewTab("Credit")
-
 local Section = Tab:NewSection("Auto Farm Exp")
-local Section1 = Tab:NewSection(" 1 Time Auto Rob")
-local Section2 = Tab:NewSection("Grenade Spam")
-local Section3 = Tab:NewSection("WalkSpeed")
-local Section4 = Tab:NewSection("GodMode")
-local Section5 = Tab:NewSection("Car Mods")
-local Section6 = Tab:NewSection("Teleports")
-local Section7 = Tab:NewSection("Gun Mods")
-local Section8 = Tab:NewSection("Created by caxpzo#0068")
+local Section2 = Tab:NewSection(" 1 Time Auto Rob")
+
+local Tab2 = window:NewTab("Extra")
+local Section3 = Tab:NewSection("Grenade Spam")
+local Section4 = Tab:NewSection("WalkSpeed")
+local Section5 = Tab:NewSection("GodMode")
+
+local Tab3 = window:NewTab("Car Mods")
+local Section6 = Tab:NewSection("Car Mods")
+
+local Tab4 = window:NewTab("Teleports")
+local Section7 = Tab:NewSection("Teleports")
+
+local Tab5 = window:NewTab("Gun Mods")
+local Section8 = Tab:NewSection("Gun Mods")
+
+local Tab6 = window:NewTab("Credit")
+local Section9 = Tab:NewSection("Created by caxpzo#0068")
 
 Section:NewToggle("Farm Exp", "Auto Farm Exp Rejoin After use", function(state)
     game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("SetTeam", "Police")
@@ -31,7 +35,7 @@ game:GetService("ReplicatedStorage").Event:FireServer("Eject", game:GetService("
 end)
 end)
 
-Section1:NewButton("Rob Smalls", "Auto Rob Smalls", function()
+Section2:NewButton("Rob Smalls", "Auto Rob Smalls", function()
 wait(2)
          game.Players.LocalPlayer.Character.HumanoidRootPart.Parent = nil
 for i,v in pairs(getnilinstances()) do 
@@ -327,7 +331,7 @@ tv()
 atm()
 end)
 
-Section1:NewButton("Bank", "Rob Bank", function()
+Section2:NewButton("Bank", "Rob Bank", function()
     if game.ReplicatedStorage.HeistStatus.Bank.Locked.Value == true then
         game:GetService("StarterGui"):SetCore("SendNotification",{     
 Title = "Caxp",     
@@ -386,7 +390,7 @@ Bank()
 end
 end)
 
-Section1:NewButton("Plane", "Rob Plane", function()
+Section2:NewButton("Plane", "Rob Plane", function()
     if game.Workspace.CargoPlane.Plane == nil then
         game:GetService("StarterGui"):SetCore("SendNotification",{     
 Title = "Caxp",     
@@ -467,7 +471,7 @@ tp(2101, 27, 426)
 end
 end)
 
-Section1:NewButton("Pyramid", "Rob Pyramid", function()
+Section2:NewButton("Pyramid", "Rob Pyramid", function()
 if game.ReplicatedStorage.HeistStatus.Pyramid.Locked.Value == true then
             game:GetService("StarterGui"):SetCore("SendNotification",{     
 Title = "Caxp",     
@@ -544,7 +548,7 @@ wait(1)
 tp(2059, 26, 433)
 end)
 
-Section1:NewButton("Ship", "Rob Ship", function()
+Section2:NewButton("Ship", "Rob Ship", function()
     if game.Workspace.Ship.Boat.Vault == nil then
         game:GetService("StarterGui"):SetCore("SendNotification",{     
 Title = "Caxp",     
@@ -595,7 +599,7 @@ tp(2076, 26, 427)
 end
 end)
 
-Section2:NewButton("Grenade Spam", "Grenade Spam", function()
+Section3:NewButton("Grenade Spam", "Grenade Spam", function()
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Grenade") == nil then
            game:GetService("StarterGui"):SetCore("SendNotification",{     
 Title = "Caxp",     
@@ -636,17 +640,17 @@ end
 end
 end)
 
-Section2:NewTextBox("Bomb Amount", "Bomb Amount", function(bwee, fochhusloseeet)
+Section3:NewTextBox("Bomb Amount", "Bomb Amount", function(bwee, fochhusloseeet)
     if fochhusloseeet then
        bbgwqqwe = bwee
 end
 end)
 
-Section3:NewSlider("WalkSpeed", "WalkSpeed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+Section4:NewSlider("WalkSpeed", "WalkSpeed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
-Section3:NewSlider("JumpPower", "JumpPower", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+Section4:NewSlider("JumpPower", "JumpPower", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
@@ -661,6 +665,7 @@ Duration = 15, })
 end)
 
 Section:NewLabel("Give")
+
 Section:NewButton("Keycard", "Give you keycard", function()
     for i = 1,50 do
     for i,v in pairs(game.Players:GetChildren()) do
@@ -779,7 +784,7 @@ tp(942, 25, 912)
 end
 end)
 
-Section5:NewButton("Infinite Nitro", "Give your car infinite Nitro", function()
+Section6:NewButton("Infinite Nitro", "Give your car infinite Nitro", function()
     game:GetService("RunService").RenderStepped:Connect(function()
 if workspace.ObjectSelection:FindFirstChild(game.Players.LocalPlayer.Name.."'s Vehicle") then
 pcall(function()workspace.ObjectSelection[game.Players.LocalPlayer.Name.."'s Vehicle"].CarChassis.Boost.Value = 20;end)
@@ -787,13 +792,13 @@ end
 end)
 end)
 
-Section5:NewTextBox("Change Plate", "Change your car plate", function(ew60we,geyyu)
+Section6:NewTextBox("Change Plate", "Change your car plate", function(ew60we,geyyu)
     if geyyu then
 game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Plate",ew60we)
 end
 end)
 
-Section4:NewToggle("Give Yourself", "Give yourself GodMode", false,function(cwe)
+Section5:NewToggle("Give Yourself", "Give yourself GodMode", false,function(cwe)
     getgenv().trggewinkets = cwe
 while wait() do
 if getgenv().trggewinkets then
@@ -808,7 +813,7 @@ end
 end
 end)
 
-Section6:NewButton("Teleport To Drop", "Teleport to Drop", function()
+Section7:NewButton("Teleport To Drop", "Teleport to Drop", function()
         if game.Workspace.Train ~= nil then
     local _speed=1000
 function tp(...)
@@ -832,7 +837,7 @@ tp(game.Workspace.ObjectSelection.CrateDrop.CrateDrop.Position)
 end
 end)
 
-Section6:NewTextBox("Teleport to", "Teleport to", function(bwha54ssee,eqwe65)
+Section7:NewTextBox("Teleport to", "Teleport to", function(bwha54ssee,eqwe65)
     if eqwe65 then
             local _speed=1000
 function tp(...)
@@ -858,7 +863,7 @@ end
     end
 end)
 
-Section7:NewButton("Infinite Ammo", "Give infinite Ammo", function()
+Section8:NewButton("Infinite Ammo", "Give infinite Ammo", function()
     game:GetService("RunService").RenderStepped:Connect(function()
 local function main(v)
    if v.Name == "RifleScript" or v.Name == "ShotgunScript" or v.Name == "PistolScript" or v.Name == "TazerScript" or v.Name == "PowerScript" then
@@ -874,6 +879,6 @@ for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do main(v
 end)
 end)
 
-Section8:NewKeybind("ToggleUi", "ToggleUi", Enum.KeyCode.F, function()
+Section9:NewKeybind("ToggleUi", "ToggleUi", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
