@@ -375,6 +375,216 @@ Bank()
 end
 end)
 
+Section:NewButton("Plane", "Rob Plane", function()
+    if game.Workspace.CargoPlane.Plane == nil then
+        game:GetService("StarterGui"):SetCore("SendNotification",{     
+Title = "Plane Rob Script",     
+Text = "Wait to Plane Come",
+Duration = 15, })
+    else
+    local _speed=1000
+function tp(...)
+   local plr=game.Players.LocalPlayer
+   local args={...}
+   if typeof(args[1])=="number"and args[2]and args[3]then
+      args=Vector3.new(args[1],args[2],args[3])
+   elseif typeof(args[1])=="Vector3" then
+       args=args[1]    
+   elseif typeof(args[1])=="CFrame" then
+       args=args[1].Position
+   end
+   local dist=(plr.Character.HumanoidRootPart.Position-args).Magnitude
+   game:GetService("TweenService"):Create(
+       plr.Character.HumanoidRootPart,
+       TweenInfo.new(dist/_speed,Enum.EasingStyle.Linear),
+       {CFrame=CFrame.new(args)}
+   ):Play()
+end
+tp(game.Workspace.CargoPlane.Plane.Tele1.Position)
+wait(1)
+tp(game.Workspace.CargoPlane.Plane.Tele1.Position)
+
+ for i, v in pairs(workspace.ObjectSelection:GetChildren()) do
+          if v.Name == "PlaneCrate" then
+          local part = v:FindFirstChildOfClass("Part")
+          local pos = v.PlaneCrate.Position
+                          for i = 0,2 do
+                              wait(.1)
+                              game.Players.LocalPlayer.Character.HumanoidRootPart.Position = pos
+                          end
+              wait(0.3)
+              v.PlaneCrate.PlaneCrate.Event:FireServer()
+                            repeat
+                 wait()
+               until game.Players.LocalPlayer.PlayerGui.MainGUI.StatsHUD.CashBagHUD.Cash.Amount.Text == "4"
+              wait(2)
+              wait(2)
+              end
+          end
+              wait(1)
+              game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232, 51061, 598)
+              wait(1)
+              game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(227, 51074, 695)
+              wait(1)
+              game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(236, 51091, 536)
+             wait(1)
+
+for i, v in pairs(workspace.ObjectSelection:GetChildren()) do
+          if v.Name == "HackKeypad" then
+          local part = v:FindFirstChildOfClass("Part")
+          if part.Name ~= "Nope" then
+          local pos = v.HackKeypad.Position
+                          for i = 1,2 do
+                              wait(.1)
+                              game.Players.LocalPlayer.Character.HumanoidRootPart.Position = pos
+                          end
+              wait(0.3)
+              v.HackKeypad.HackKeypad.Event:FireServer()
+              wait(2)
+          end
+          end
+end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(232.338531, 51095.75, 513.972473, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+wait(1)
+workspace.ObjectSelection.PlaneButton.PlaneButton.PlaneButton.Event:FireServer()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(231.832428, 51067.2266, 489.710938, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+wait(2)
+tp(2062, 26, 429)
+wait(2)
+tp(2101, 27, 426)
+end
+end)
+
+
+
+
+
+Section:NewButton("Pyramid", "Rob Pyramid", function()
+if game.ReplicatedStorage.HeistStatus.Pyramid.Locked.Value == true then
+            game:GetService("StarterGui"):SetCore("SendNotification",{     
+Title = "Pyramid Rob Script",     
+Text = "Wait to Pyramid Open For Rob",
+Duration = 10, })
+else
+local _speed=1999
+function tp(...)
+   local plr=game.Players.LocalPlayer
+   local args={...}
+   if typeof(args[1])=="number"and args[2]and args[3]then
+      args=Vector3.new(args[1],args[2],args[3])
+   elseif typeof(args[1])=="Vector3" then
+       args=args[1]    
+   elseif typeof(args[1])=="CFrame" then
+       args=args[1].Position
+   end
+   local dist=(plr.Character.HumanoidRootPart.Position-args).Magnitude
+   game:GetService("TweenService"):Create(
+       plr.Character.HumanoidRootPart,
+       TweenInfo.new(dist/_speed,Enum.EasingStyle.Linear),
+       {CFrame=CFrame.new(args)}
+   ):Play()
+end
+
+tp(-1047.58899, 18.2789993, -479.790009, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+wait(3)
+tp(1233, 51046, 428)
+wait(1)
+tp(1234, 51054, 444)
+wait(.50)
+tp(1209, 51053, 500)
+wait(1)
+tp(1180, 51059, 455)
+wait(1)
+tp(995, 51077, 499)
+wait(1)
+tp(997, 51073, 547)
+for i, v in pairs(workspace.ObjectSelection:GetChildren()) do
+          if v.Name == "TreasurePyramid" then
+          local part = v:FindFirstChildOfClass("Part")
+          local pos = v.TreasurePyramid.Position
+                          for i = 1, math.random(3,10) do
+                              wait(.1)
+                              game.Players.LocalPlayer.Character.HumanoidRootPart.Position = pos
+                          end
+              wait(0.3)
+              v.TreasurePyramid.TreasurePyramid.Event:FireServer()
+          end
+          
+end
+end
+tp(-1053, 18, -508)
+wait(2)
+tp(-84, 27, 794)
+wait(1)
+tp(1230, 51052, 438)
+wait(2)
+tp(1231.14185, 51051.2344, 381.096191, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+wait(2)
+tp(-1012, 21, -519)
+wait(5)
+tp(1997, 26, 420)
+wait(2)
+tp(2065, 26, 428)
+wait(2)
+tp(2086, 27, 435)
+wait(1)
+tp(2059, 26, 433)
+wait(1)
+tp(2059, 26, 433)
+wait(1)
+tp(2059, 26, 433)
+end)
+
+Section:NewButton("Ship" "Rob Ship", function()
+    if game.Workspace.Ship.Boat.Vault == nil then
+        game:GetService("StarterGui"):SetCore("SendNotification",{     
+Title = "Ship Rob Script",     
+Text = "Wait to Ship Come",
+Duration = 15, })
+else
+                 local _speed=2000
+function tp(...)
+   local plr=game.Players.LocalPlayer
+   local args={...}
+   if typeof(args[1])=="number"and args[2]and args[3]then
+      args=Vector3.new(args[1],args[2],args[3])
+   elseif typeof(args[1])=="Vector3" then
+       args=args[1]    
+   elseif typeof(args[1])=="CFrame" then
+       args=args[1].Position
+   end
+   local dist=(plr.Character.HumanoidRootPart.Position-args).Magnitude
+   game:GetService("TweenService"):Create(
+       plr.Character.HumanoidRootPart,
+       TweenInfo.new(dist/_speed,Enum.EasingStyle.Linear),
+       {CFrame=CFrame.new(args)}
+   ):Play()
+end
+
+tp(2471, 42, 267)
+wait(6)
+tp(2488, 51, 205)   
+wait(2)
+tp(2502, 67, 256)
+wait(2)
+tp(2514, 62, 246)
+wait(1)
+tp(2510, 81, 326)
+wait(10)
+tp(2510, 82, 340)
+wait(3)
+tp(2517, 81, 333)
+wait(25)
+tp(2327, 26, 298)
+wait(3)
+tp(1976, 26, 345)
+wait(3)
+tp(2065, 27, 427)
+wait(3)
+tp(2076, 26, 427)
+end
+end)
+
 local Section = Tab:NewSection("Grenade Spam")
 
 Section:NewButton("Grenade Spam", "Grenade Spam", function()
