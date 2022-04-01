@@ -260,6 +260,57 @@ for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do main(v
 end)
 end)
 
+local Tab = window:NewTab("Troll")
+
+Section:NewLabel("Grenade Script")
+
+Section:NewButton("Grenade Spam", "Grenade Spam", function()
+    if game.Players.LocalPlayer.Backpack:FindFirstChild("Grenade") == nil then
+           game:GetService("StarterGui"):SetCore("SendNotification",{     
+Title = "Attention",     
+Text = "You need have Grenade in your inventory",
+Duration = 15, })
+else
+    wait(1)
+        local tool = "Grenade"
+
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+if v:IsA("Tool") and v.Name == tool then
+v.Parent = game:GetService("Players").LocalPlayer.Character
+end
+end
+local UserInputService = game:GetService("UserInputService")
+
+UserInputService.InputBegan:Connect(function(input, isProcessed)
+if isProcessed then return end
+if input.KeyCode == Enum.KeyCode.F then
+    for c = 1,bbgwqqwe do
+game:GetService("ReplicatedStorage").Event:FireServer("ThrowGrenade",Vector3.new(-1626.83398, 43.1575661, 689.200378))
+end
+end
+end)
+
+           game:GetService("StarterGui"):SetCore("SendNotification",{     
+Title = "Attention",     
+Text = "Add Bomb Amount To Script Work, Press F to Drop Bomb",
+Duration = 15, })
+for i = 1,100 do
+for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+if v:IsA("Tool") or v:IsA("HopperBin") then
+if v.Handle:FindFirstChild("Mesh") then v.Handle.Mesh:Destroy() end
+v.Parent = game:GetService("Workspace")
+end
+end
+end
+end
+end)
+
+Section:NewTextBox("Bomb Amount", "Bomb Amount", function(bwee, fochhusloseeet)
+    if fochhusloseeet then
+       bbgwqqwe = bwee
+end
+end)
+
 local Tab = window:NewTab("Credit")
 
 local Section = Tab:NewSection("Created by caxpzo#0068")
@@ -267,8 +318,3 @@ local Section = Tab:NewSection("Created by caxpzo#0068")
 Section:NewKeybind("ToggleUi", "ToggleUi", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
-
-Section:NewColorPicker(theme, "Change your "..theme, color, function(color3)
-        Library:ChangeColor(theme, color3)
-    end)
-end
