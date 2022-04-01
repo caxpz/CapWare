@@ -318,6 +318,65 @@ tv()
 atm()
 end)
 
+Section:NewButton("Bank", "Rob Bank", function()
+    if game.ReplicatedStorage.HeistStatus.Bank.Locked.Value == true then
+        game:GetService("StarterGui"):SetCore("SendNotification",{     
+Title = "Caxp",     
+Text = "Wait to Bank Open",
+Duration = 15, })
+else
+    local function Bank()
+              local _speed=1000
+function tp(...)
+   local plr=game.Players.LocalPlayer
+   local args={...}
+   if typeof(args[1])=="number"and args[2]and args[3]then
+      args=Vector3.new(args[1],args[2],args[3])
+   elseif typeof(args[1])=="Vector3" then
+       args=args[1]    
+   elseif typeof(args[1])=="CFrame" then
+       args=args[1].Position
+   end
+   local dist=(plr.Character.HumanoidRootPart.Position-args).Magnitude
+   game:GetService("TweenService"):Create(
+       plr.Character.HumanoidRootPart,
+       TweenInfo.new(dist/_speed,Enum.EasingStyle.Linear),
+       {CFrame=CFrame.new(args)}
+   ):Play()
+end
+ 
+  tp(653, 52, 477)
+  wait(5)
+  tp(660, 52, 487)
+  wait(2)
+tp(732, 52, 540)
+wait(2)
+tp(678, 52, 599)
+wait(2)
+tp(710, 54, 639)
+wait(2)
+tp(722, 60, 636)
+wait(2)
+tp(744, 71, 627)
+wait(2)
+tp(755, 77, 615)
+wait(1)
+tp(657, 110, 617)
+wait(2)
+tp(705, 110, 544)
+wait(10)
+tp(724, 110, 534)
+wait(40)
+tp(653, 52, 477)
+wait(1)
+tp(758, 77, 622)
+wait(2)
+tp(2075, 26, 397) -- criminal base 
+end
+Bank()
+end
+end)
+
 local Section = Tab:NewSection("Grenade Spam")
 
 Section:NewButton("Grenade Spam", "Grenade Spam", function()
