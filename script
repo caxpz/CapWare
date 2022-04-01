@@ -18,7 +18,7 @@ game:GetService("ReplicatedStorage").Event:FireServer("Eject", game:GetService("
 end)
 end)
 
-local Tab = window:NewTab("Troll")
+local Section = Tab:NewSection("Grenade Spam")
 
 Section:NewButton("Grenade Spam", "Grenade Spam", function()
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Grenade") == nil then
