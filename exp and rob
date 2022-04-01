@@ -572,7 +572,7 @@ end)
 
 Section2:NewToggle("Farm Exp", "Auto Farm Exp Rejoin After use", function()
     game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("SetTeam", "Police")
-wait(.10)
+wait(.70)
 game:GetService("RunService").RenderStepped:Connect(function()
 for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
   if v.Name == "Handcuffs" then v.Parent = game:GetService("Players").LocalPlayer.Character
