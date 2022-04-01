@@ -20,8 +20,6 @@ end)
 
 local Tab = window:NewTab("Troll")
 
-Section:NewLabel("Grenade Spam")
-
 Section:NewButton("Grenade Spam", "Grenade Spam", function()
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Grenade") == nil then
            game:GetService("StarterGui"):SetCore("SendNotification",{     
