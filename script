@@ -18,9 +18,7 @@ game:GetService("ReplicatedStorage").Event:FireServer("Eject", game:GetService("
 end)
 end)
 
-Section:NewLabel("1 Time Rob Scripts")
-
-local Section = Tab:NewSection("Auto Rob")
+local Section = Tab:NewSection(" 1 Time Auto Rob")
 
 Section:NewButton("Rob Smalls", "Auto Rob Smalls", function()
 wait(2)
