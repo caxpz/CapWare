@@ -35,7 +35,7 @@ local Section9 = Tab:NewSection("Created by caxpzo#0068")
 local Section3 = Tab:NewSection("Grenade Spam")
 
 Section:NewToggle("Farm Exp", "Auto Farm Exp Rejoin After use", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/MSZAznxp", true))()
+    loadstring(game:HttpGet("https://pastebin.com/yYtL100w", true))()
 end)
 
 Section3:NewButton("Grenade Spam", "Grenade Spam", function()
