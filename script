@@ -533,6 +533,57 @@ wait(1)
 tp(2059, 26, 433)
 end)
 
+Section:NewButton("Ship", "Rob Ship", function()
+    if game.Workspace.Ship.Boat.Vault == nil then
+        game:GetService("StarterGui"):SetCore("SendNotification",{     
+Title = "Ship Rob Script",     
+Text = "Wait to Ship Come",
+Duration = 15, })
+else
+                 local _speed=2000
+function tp(...)
+   local plr=game.Players.LocalPlayer
+   local args={...}
+   if typeof(args[1])=="number"and args[2]and args[3]then
+      args=Vector3.new(args[1],args[2],args[3])
+   elseif typeof(args[1])=="Vector3" then
+       args=args[1]    
+   elseif typeof(args[1])=="CFrame" then
+       args=args[1].Position
+   end
+   local dist=(plr.Character.HumanoidRootPart.Position-args).Magnitude
+   game:GetService("TweenService"):Create(
+       plr.Character.HumanoidRootPart,
+       TweenInfo.new(dist/_speed,Enum.EasingStyle.Linear),
+       {CFrame=CFrame.new(args)}
+   ):Play()
+end
+
+
+tp(2471, 42, 267)
+wait(6)
+tp(2488, 51, 205)   
+wait(2)
+tp(2502, 67, 256)
+wait(2)
+tp(2514, 62, 246)
+wait(1)
+tp(2510, 81, 326)
+wait(10)
+tp(2510, 82, 340)
+wait(3)
+tp(2517, 81, 333)
+wait(25)
+tp(2327, 26, 298)
+wait(3)
+tp(1976, 26, 345)
+wait(3)
+tp(2065, 27, 427)
+wait(3)
+tp(2076, 26, 427)
+end
+end)
+
 local Section = Tab:NewSection("Grenade Spam")
 
 Section:NewButton("Grenade Spam", "Grenade Spam", function()
