@@ -378,7 +378,7 @@ end)
 Section:NewButton("Plane", "Rob Plane", function()
     if game.Workspace.CargoPlane.Plane == nil then
         game:GetService("StarterGui"):SetCore("SendNotification",{     
-Title = "Plane Rob Script",     
+Title = "Caxp",     
 Text = "Wait to Plane Come",
 Duration = 15, })
     else
@@ -454,6 +454,83 @@ tp(2062, 26, 429)
 wait(2)
 tp(2101, 27, 426)
 end
+end)
+
+Section:NewButton("Pyramid", "Rob Pyramid", function()
+if game.ReplicatedStorage.HeistStatus.Pyramid.Locked.Value == true then
+            game:GetService("StarterGui"):SetCore("SendNotification",{     
+Title = "Caxp",     
+Text = "Wait to Pyramid Open For Rob",
+Duration = 10, })
+else
+local _speed=1999
+function tp(...)
+   local plr=game.Players.LocalPlayer
+   local args={...}
+   if typeof(args[1])=="number"and args[2]and args[3]then
+      args=Vector3.new(args[1],args[2],args[3])
+   elseif typeof(args[1])=="Vector3" then
+       args=args[1]    
+   elseif typeof(args[1])=="CFrame" then
+       args=args[1].Position
+   end
+   local dist=(plr.Character.HumanoidRootPart.Position-args).Magnitude
+   game:GetService("TweenService"):Create(
+       plr.Character.HumanoidRootPart,
+       TweenInfo.new(dist/_speed,Enum.EasingStyle.Linear),
+       {CFrame=CFrame.new(args)}
+   ):Play()
+end
+
+
+tp(-1047.58899, 18.2789993, -479.790009, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+wait(3)
+tp(1233, 51046, 428)
+wait(1)
+tp(1234, 51054, 444)
+wait(.50)
+tp(1209, 51053, 500)
+wait(1)
+tp(1180, 51059, 455)
+wait(1)
+tp(995, 51077, 499)
+wait(1)
+tp(997, 51073, 547)
+for i, v in pairs(workspace.ObjectSelection:GetChildren()) do
+          if v.Name == "TreasurePyramid" then
+          local part = v:FindFirstChildOfClass("Part")
+          local pos = v.TreasurePyramid.Position
+                          for i = 1, math.random(3,10) do
+                              wait(.1)
+                              game.Players.LocalPlayer.Character.HumanoidRootPart.Position = pos
+                          end
+              wait(0.3)
+              v.TreasurePyramid.TreasurePyramid.Event:FireServer()
+          end
+          
+end
+end
+tp(-1053, 18, -508)
+wait(2)
+tp(-84, 27, 794)
+wait(1)
+tp(1230, 51052, 438)
+wait(2)
+tp(1231.14185, 51051.2344, 381.096191, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+wait(2)
+tp(-1012, 21, -519)
+wait(5)
+tp(1997, 26, 420)
+wait(2)
+tp(2065, 26, 428)
+wait(2)
+tp(2086, 27, 435)
+wait(1)
+tp(2059, 26, 433)
+wait(1)
+tp(2059, 26, 433)
+wait(1)
+tp(2059, 26, 433)
 end)
 
 local Section = Tab:NewSection("Grenade Spam")
