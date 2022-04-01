@@ -3,11 +3,10 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local window = Library.CreateLib("Caxp MadCity", "Ocean")
 
 local Tab = window:NewTab("Main")
-local Section = Tab:NewSection("Auto Farm Exp")
-local Section2 = Tab:NewSection(" 1 Time Auto Rob")
 local Tab2 = window:NewTab("Extra")
-local Section3 = Tab:NewSection("Grenade Spam")
-local Section4 = Tab:NewSection("WalkSpeed")
+
+local Section = Tab:NewSection("Auto Farm Exp")
+
 local Section5 = Tab:NewSection("GodMode")
 local Tab3 = window:NewTab("Car Mods")
 local Section6 = Tab:NewSection("Car Mods")
@@ -29,6 +28,8 @@ end
 game:GetService("ReplicatedStorage").Event:FireServer("Eject", game:GetService("Players").LocalPlayer)
 end)
 end)
+
+local Section2 = Tab:NewSection(" 1 Time Auto Rob")
 
 Section2:NewButton("Rob Smalls", "Auto Rob Smalls", function()
 wait(2)
@@ -594,6 +595,8 @@ tp(2076, 26, 427)
 end
 end)
 
+local Section3 = Tab:NewSection("Grenade Spam")
+
 Section3:NewButton("Grenade Spam", "Grenade Spam", function()
     if game.Players.LocalPlayer.Backpack:FindFirstChild("Grenade") == nil then
            game:GetService("StarterGui"):SetCore("SendNotification",{     
@@ -640,6 +643,8 @@ Section3:NewTextBox("Bomb Amount", "Bomb Amount", function(bwee, fochhusloseeet)
        bbgwqqwe = bwee
 end
 end)
+
+local Section4 = Tab:NewSection("WalkSpeed")
 
 Section4:NewSlider("WalkSpeed", "WalkSpeed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
