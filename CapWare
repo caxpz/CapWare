@@ -5,6 +5,4 @@ local MainTab = window:NewTab("Main")
 local MainSection = MainTab:NewSection("Aimlock")
 local FunTab = window:NewTab("Fun Stuffs")
 
-FunTab:NewButton("Speed", "Speed", function()
-end
-
+FunTab:NewLabel("Test")
