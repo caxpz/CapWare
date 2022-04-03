@@ -1,5 +1,10 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local window = Library.CreateLib("Caxp MadCity", "Ocean")
+local window = Library.CreateLib("CapWare By. Caxpzo#0068", "Ocean")
 
 local MainTab = window:NewTab("Main")
 local MainSection = MainTab:NewSection("Aimlock")
+local FunTab = window:NewTab("Fun Stuffs")
+
+FunTab:NewButton("Speed", "Speed", function()
+end
+
