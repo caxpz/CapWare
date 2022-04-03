@@ -4,4 +4,4 @@ local window = Library.CreateLib("CapWare                                       
 local Main = window:NewTab("Main")
 local MainSection = Main:NewSection("Aimlock")
 local FunStuffs = window:NewTab("Fun Stuffs")
-local FunSection =window:NewTab("Headless, Korblox")
+local FunSection =window:NewSection("Headless, Korblox")
