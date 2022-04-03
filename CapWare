@@ -4,3 +4,23 @@ local window = Library.CreateLib("CapWare                             By. Caxpzo
 local Main = window:NewTab("Main")
 local MainSection = Main:NewSection("Aimlock")
 local FunStuffs = window:NewTab("Fun Stuffs")
+
+FunStuffs:AddButton("Headless", "Give you Headless", function(bool)
+game.Players.LocalPlayer.Character.Head.Transparency = 1
+for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
+if (v:IsA("Decal")) then
+v:Destroy()
+end
+end
+end)
+ 
+FunStuffs:AddButton("Korblox", "Give you korblox", function(bool)
+	local ply = game.Players.LocalPlayer
+	local chr = ply.Character
+	chr.RightLowerLeg.MeshId = "902942093"
+	chr.RightLowerLeg.Transparency = "1"
+	chr.RightUpperLeg.MeshId = "http://www.roblox.com/asset/?id=902942096"
+	chr.RightUpperLeg.TextureID = "http://roblox.com/asset/?id=902843398"
+	chr.RightFoot.MeshId = "902942089"
+	chr.RightFoot.Transparency = "1"
+end)
