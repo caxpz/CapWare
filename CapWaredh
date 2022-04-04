@@ -1,4 +1,4 @@
---Da Hood copy
+--Da Hood
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local window = Library.CreateLib("CapWare                                                        By. Caxpzo#0068", "Ocean")
 
@@ -15,7 +15,7 @@ local TeleportSection2 = Teleports:NewSection("Places")
 local ESPTab = window:NewTab("ESP")
 local ESPSection = ESPTab:NewSection("ESP")
 local Credits = window:NewTab("Credits")
-local CreditsSection = Credits:NewSection("CapWare By. Caxpz#0068")
+local CreditsSection = Credits:NewSection("CapWare By. Caxpzo#0068")
 
 --// Settings
 
