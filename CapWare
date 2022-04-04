@@ -1,3 +1,4 @@
+--Untitled Hood
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local window = Library.CreateLib("CapWare                                                        By. Caxpzo#0068", "Ocean")
 
@@ -8,10 +9,12 @@ local ExtraStuffs = window:NewTab("Extra Stuffs")
 local ExtraSection = ExtraStuffs:NewSection("Headless, Korblox")
 local ExtraSection2 = ExtraStuffs:NewSection("Speed and Noclip")
 local ExtraSection3 = ExtraStuffs:NewSection("FOV")
+local Teleports = window:NewTab("Teleports")
+local TeleportSection = Teleports:NewSection("Teleports")
 local ESPTab = window:NewTab("ESP")
 local ESPSection = ESPTab:NewSection("ESP")
 local Credits = window:NewTab("Credits")
-local CreditsSection = Credits:NewSection("CapWare By. Caxpz#0068")
+local CreditsSection = Credits:NewSection("CapWare By. Caxpzo#0068")
 
 --// Settings
 
@@ -387,6 +390,14 @@ ExtraSection3:NewTextBox("Fov Camera", "FOV", function(text)
 	workspace.CurrentCamera.FieldOfView = (text)
 end)
 
+TeleportSection:NewButton("Admin Base", "Admin Base", function(bool)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(139.815933, -22.9016266, -136.737762, 0.0339428484, -7.90177737e-08, 0.999423802, -4.7851227e-08, 1, 8.06884728e-08, -0.999423802, -5.0562452e-08, 0.0339428484)
+end)
+
+TeleportSection:NewButton("PlayGround", "PlayGround", function(bool)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-308.851196, 103.049866, -685.874817, 0.0775452703, 4.43633544e-05, -0.996988416, 4.02679916e-06, 1, 4.48105384e-05, 0.996988416, -7.48951334e-06, 0.0775452703)
+end)
+
 ESPSection:NewToggle("Enable ESP", "Enable ESP", function(bool)
     ESP:Toggle(bool)
 end)
@@ -402,5 +413,3 @@ end)
 ESPSection:NewToggle("Enable Boxes", "Enable Boxes", function(bool)
     ESP.Boxes = bool
 end)
-
-CreditsSection:NewLabel("CapWare By. Caxpzo#0068")
