@@ -4,12 +4,16 @@ local window = Library.CreateLib("CapWare                                       
 local Main = window:NewTab("Main")
 local MainSection = Main:NewSection("Aimlock")
 local MainSection2 = Main:NewSection("Silent Aim")
-local FunStuffs = window:NewTab("Fun Stuffs")
-local FunSection = FunStuffs:NewSection("Headless, Korblox")
-local FunSection2 = FunStuffs:NewSection("Speed and Noclip")
-local FunSection3 = FunStuffs:NewSection("FOV")
+local ExtraStuffs = window:NewTab("Extra Stuffs")
+local ExtraSection = ExtraStuffs:NewSection("Headless, Korblox")
+local ExtraSection2 = ExtraStuffs:NewSection("Speed and Noclip")
+local ExtraSection3 = ExtraStuffs:NewSection("FOV")
 local ESPTab = window:NewTab("ESP")
 local ESPSection = ESPTab:NewSection("ESP")
+local Credits = window:NewTab("Credits")
+local CreditsSection = Credits:NewSection("CapWare By. Caxpz#0068")
+
+game.Players.LocalPlayer:Kick("User banned 💀")
 
 --// Settings
 
@@ -68,8 +72,6 @@ local aimLocked
 local lockVictim
 
 --// Anti-Cheat
-
-repeat wait() until LP.Character:FindFirstChild("FULLY_LOADED_CHAR");
 
 for _,ac in pairs(LP.Character:GetChildren()) do
     if (ac:IsA("Script") and ac.Name ~= "Animate" and ac.Name ~= "Health") then
@@ -353,7 +355,7 @@ MainSection2:NewKeybind("Keybind", "Keybind", Enum.KeyCode.Q, function(arg)
     Settings.SilentAim.Key = arg
 end)
 
-FunSection:NewButton("Headless", "Gives you Headless", function(bool)
+ExtraSection:NewButton("Headless", "Gives you Headless", function(bool)
 game.Players.LocalPlayer.Character.Head.Transparency = 1
 for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
 if (v:IsA("Decal")) then
@@ -362,7 +364,7 @@ end
 end
 end)
  
-FunSection:NewButton("Korblox", "Gives you Korblox", function(bool)
+ExtraSection:NewButton("Korblox", "Gives you Korblox", function(bool)
 	local ply = game.Players.LocalPlayer
 	local chr = ply.Character
 	chr.RightLowerLeg.MeshId = "902942093"
@@ -373,17 +375,17 @@ FunSection:NewButton("Korblox", "Gives you Korblox", function(bool)
 	chr.RightFoot.Transparency = "1"
 end)
 
-FunSection2:NewToggle("Speed w/ Noclip", "Speed Gang", function(state)
+ExtraSection2:NewToggle("Speed w/ Noclip", "Speed Gang", function(state)
     Settings.CFSpeed.Toggled = state
 end)
-FunSection2:NewSlider("Speed", "Speed", 10, 0.1, function(arg)
+ExtraSection2:NewSlider("Speed", "Speed", 10, 0.1, function(arg)
     Settings.CFSpeed.Speed = tonumber(arg)
 end)
-FunSection2:NewKeybind("Key", "Key", Enum.KeyCode.T, function(arg)
+ExtraSection2:NewKeybind("Key", "Key", Enum.KeyCode.T, function(arg)
     Settings.CFSpeed.Key = arg
 end)
  
-FunSection3:NewTextBox("Fov Camera", "FOV", function(text)
+ExtraSection3:NewTextBox("Fov Camera", "FOV", function(text)
 	workspace.CurrentCamera.FieldOfView = (text)
 end)
 
@@ -402,3 +404,5 @@ end)
 ESPSection:NewToggle("Enable Boxes", "Enable Boxes", function(bool)
     ESP.Boxes = bool
 end)
+
+CreditsSection:NewLabel("CapWare By. Caxpzo#0068")
