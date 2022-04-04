@@ -13,8 +13,6 @@ local ESPSection = ESPTab:NewSection("ESP")
 local Credits = window:NewTab("Credits")
 local CreditsSection = Credits:NewSection("CapWare By. Caxpz#0068")
 
-game.Players.LocalPlayer:Kick("User banned 💀")
-
 --// Settings
 
 local Settings = {
