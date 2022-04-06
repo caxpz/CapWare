@@ -424,6 +424,8 @@ end
 local ExtraStuffs = L_4_:NewTab("Extra Stuffs")
 local ExtraSection = ExtraStuffs:NewSection("Headless, Korblox")
 local ExtraSection3 = ExtraStuffs:NewSection("FOV")
+local ExtraSection4 = ExtraStuffs:NewSection("Fake Macro (Press Q before Animation)")
+local FakeMacro = loadstring(game:HttpGet("https://pastebin.com/raw/nEQZRJJP"))()
 
 ExtraSection:NewButton("Headless", "Gives you Headless", function(bool)
     game.Players.LocalPlayer.Character.Head.Transparency = 1
@@ -449,6 +451,13 @@ ExtraSection:NewButton("Headless", "Gives you Headless", function(bool)
         workspace.CurrentCamera.FieldOfView = (text)
     end)
 
+	ExtraSection4:NewButton(
+    "Fake Macro",
+    "Press Q before Greet Animation IShowSpeed is gay",
+    function(speed)
+	FakeMacro:Click(speed)
+	end
+)
 local Teleports = L_4_:NewTab("Teleports")
 local TeleportSection = Teleports:NewSection("Teleports")
 
@@ -463,6 +472,7 @@ local TeleportSection = Teleports:NewSection("Teleports")
 local L_17_ = L_4_:NewTab("ESP")
 local L_18_ = loadstring(game:HttpGet("https://kiriot22.com/releases/ESP.lua"))()
 local L_19_ = L_17_:NewSection("CapWare.cc")
+
 L_19_:NewToggle(
     "ESP",
     "ESP",
@@ -494,6 +504,7 @@ end
 
 local Credits = L_4_:NewTab("Credits")
 local CreditsSection = Credits:NewSection("CapWare By. Caxpzo#0068")
+
 CreditsSection:NewKeybind(
     "Keybind Gui Toggle",
     "nigga keybind",
