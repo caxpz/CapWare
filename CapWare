@@ -1,19 +1,6 @@
 --Untitled Hood
 
--- locals
-local L_1_ = "t"
-local L_2_ = game.Players.LocalPlayer:GetMouse()
-L_2_.KeyDown:Connect(
-    function(L_22_arg0)
-	if L_22_arg0 == L_1_ then
-		if DaHoodSettings.SilentAim == true then
-			DaHoodSettings.SilentAim = false
-		else
-			DaHoodSettings.SilentAim = true
-		end
-	end
-end
-)
+--Loading
 game:GetService("RunService").RenderStepped:Connect(
     function()
 	for L_23_forvar0, L_24_forvar1 in pairs(game.CoreGui:GetChildren()) do
@@ -31,14 +18,72 @@ end
 game.StarterGui:SetCore(
     "SendNotification",
     {
-	Title = "CapWare",
-	Text = "You're whitelisted.",
+	Title = "  😎 ",
+	Text = "Loading...",
 }
 )
+
+wait(0.5)
+
+game.StarterGui:SetCore(
+    "SendNotification",
+    {
+	Title = "CapWare",
+	Text = "By nigga cap",
+}
+)
+
+game.StarterGui:SetCore(
+    "SendNotification",
+    {
+	Title = "Dont forget to join our discord",
+	Text = " Link Copied",
+	
+Button1 = "Ok";
+	
+setclipboard("https://discord.gg/QaJEbeKPHQ")
+}
+)
+
+-- locals
+local FakeMacro = loadstring(game:HttpGet("https://pastebin.com/raw/nEQZRJJP"))()
+local L_1_ = "t"
+local L_2_ = game.Players.LocalPlayer:GetMouse()
+L_2_.KeyDown:Connect(
+    function(L_22_arg0)
+	if L_22_arg0 == L_1_ then
+		if DaHoodSettings.SilentAim == true then
+			DaHoodSettings.SilentAim = false
+		else
+			DaHoodSettings.SilentAim = true
+		end
+	end
+end
+)
+
 local L_3_ = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local L_4_ = L_3_.CreateLib("CapWare | Untitled Hood                                By. Caxpzo#0068", "Ocean")
+local L_4_ = L_3_.CreateLib("🧢 CapWare | Untitled Hood                            By. Caxpzo#0068", "Ocean")
 local L_5_ = L_4_:NewTab("Aimlock")
 local L_6_ = L_5_:NewSection("CapWare.cc")
+local L_7_ = L_4_:NewTab("Silent Aim")
+local L_8_ = L_7_:NewSection("CapWare.cc")
+local L_11_ = L_4_:NewTab("Antilock")
+local L_12_ = L_11_:NewSection("CapWare.cc")
+local ExtraStuffs = L_4_:NewTab("Extra Stuffs")
+local ExtraSection = ExtraStuffs:NewSection("Headless, Korblox")
+local ExtraSection3 = ExtraStuffs:NewSection("FOV")
+local ExtraSection4 = ExtraStuffs:NewSection("Fake Macro (Press Q before Animation)")
+local ExtraSection5 = ExtraStuffs:NewSection("Auto Lettuce")
+local Teleports = L_4_:NewTab("Teleports")
+local TeleportSection = Teleports:NewSection("Teleports")
+
+local L_17_ = L_4_:NewTab("ESP")
+local L_18_ = loadstring(game:HttpGet("https://kiriot22.com/releases/ESP.lua"))()
+local L_19_ = L_17_:NewSection("CapWare.cc")
+
+local Credits = L_4_:NewTab("Credits")
+local CreditsSection = Credits:NewSection("CapWare By. Caxpzo#0068")
+
 L_6_:NewButton(
     "Aimlock",
     "Beam niggas down",
@@ -251,8 +296,7 @@ L_6_:NewDropdown(
 	getgenv().AimPart = L_71_arg0
 end
 )
-local L_7_ = L_4_:NewTab("Silent Aim")
-local L_8_ = L_7_:NewSection("CapWare.cc")
+
 L_8_:NewButton(
     "Silent Aim",
     "Silent Aim Toggle Key is T.",
@@ -294,8 +338,7 @@ L_8_:NewToggle(
 	Aiming.ShowFOV = L_75_arg0
 end
 )
-local L_11_ = L_4_:NewTab("Antilock")
-local L_12_ = L_11_:NewSection("CapWare.cc")
+
 L_12_:NewButton(
     "Anti-Lock",
     "Key is Z.",
@@ -422,13 +465,6 @@ L_12_:NewButton(
 end
 )
 
-local ExtraStuffs = L_4_:NewTab("Extra Stuffs")
-local ExtraSection = ExtraStuffs:NewSection("Headless, Korblox")
-local ExtraSection3 = ExtraStuffs:NewSection("FOV")
-local ExtraSection4 = ExtraStuffs:NewSection("Fake Macro (Press Q before Animation)")
-local ExtraSection5 = ExtraStuffs:NewSection("Auto Lettuce")
-local FakeMacro = loadstring(game:HttpGet("https://pastebin.com/raw/nEQZRJJP"))()
-
 ExtraSection:NewButton("Headless", "Gives you Headless", function(bool)
     game.Players.LocalPlayer.Character.Head.Transparency = 1
     for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
@@ -467,31 +503,21 @@ ExtraSection5:NewButton("Auto Lettuce", "Auto Eat Lettuce", function()
     game:GetService("RunService").Stepped:Connect(function()
 		localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Workspace.Ignored.Shop["[Lettuce] - $5"].Head.CFrame.Position) * CFrame.new(0,5,0)
         fireclickdetector(game.Workspace.Ignored.Shop["[Lettuce] - $5"].ClickDetector)
-        wait(0.4)
         localPlayer.Character.Humanoid:EquipTool(localPlayer.Backpack["[Lettuce]"])
-        wait(0.4)
         mouse1click()
-        wait(0.4)
         mouse1click()
-        wait(0.4)
     end)
-end
+end)
 
-)
-local Teleports = L_4_:NewTab("Teleports")
-local TeleportSection = Teleports:NewSection("Teleports")
 
-    TeleportSection:NewButton("Admin Base", "Admin Base", function(bool)
+
+TeleportSection:NewButton("Admin Base", "Admin Base", function(bool)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(139.815933, -22.9016266, -136.737762, 0.0339428484, -7.90177737e-08, 0.999423802, -4.7851227e-08, 1, 8.06884728e-08, -0.999423802, -5.0562452e-08, 0.0339428484)
     end)
     
-    TeleportSection:NewButton("PlayGround", "PlayGround", function(bool)
+TeleportSection:NewButton("PlayGround", "PlayGround", function(bool)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-308.851196, 103.049866, -685.874817, 0.0775452703, 4.43633544e-05, -0.996988416, 4.02679916e-06, 1, 4.48105384e-05, 0.996988416, -7.48951334e-06, 0.0775452703)
     end)
-
-local L_17_ = L_4_:NewTab("ESP")
-local L_18_ = loadstring(game:HttpGet("https://kiriot22.com/releases/ESP.lua"))()
-local L_19_ = L_17_:NewSection("CapWare.cc")
 
 L_19_:NewToggle(
     "ESP",
@@ -521,9 +547,6 @@ L_19_:NewToggle(
 	L_18_.Boxes = L_204_arg0
 end
 )
-
-local Credits = L_4_:NewTab("Credits")
-local CreditsSection = Credits:NewSection("CapWare By. Caxpzo#0068")
 
 CreditsSection:NewKeybind(
     "Keybind Gui Toggle",
