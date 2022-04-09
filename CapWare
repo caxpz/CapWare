@@ -3,8 +3,8 @@
 
 local ClientId = game:GetService("RbxAnalyticsService"):GetClientId()
 local Hwid = {
-    [1] = "15E39DA8-490B-4CB4-A602-2960F2EE9BEE",
-	["15E39DA8-490B-4CB4-A602-2960F2EE9BEE"] = 1,
+    [1] = "",
+	[""] = 1,
 }
 local Key = {
     [1] = "CapWareOnTop"
