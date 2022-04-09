@@ -1,4 +1,36 @@
 --Untitled Hood
+--key system
+
+local ClientId = game:GetService("RbxAnalyticsService"):GetClientId()
+local Hwid = {
+    [1] = "15E39DA8-490B-4CB4-A602-2960F2EE9BEE",
+	["15E39DA8-490B-4CB4-A602-2960F2EE9BEE"] = 1,
+}
+local Key = {
+    [1] = "CapWareOnTop"
+}
+local KeyNumber = Hwid[ClientId]
+if Hwid[KeyNumber] == ClientId then
+if Key[KeyNumber] == _G.Key then
+	game.StarterGui:SetCore(
+    "SendNotification",
+    {
+	Title = "😎",
+	Text = "Loading...",
+}
+)
+else
+    for _,v in pairs(game.Players:GetPlayers()) do
+		if v:IsA("Player") then
+		v:Kick("Wrong Key")
+		end end
+end
+else
+	for _,v in pairs(game.Players:GetPlayers()) do
+		if v:IsA("Player") then
+		v:Kick("Wrong Hwid")
+		end end
+end
 
 --Loading
 game:GetService("RunService").RenderStepped:Connect(
@@ -14,13 +46,6 @@ game:GetService("RunService").RenderStepped:Connect(
 		end
 	end
 end
-)
-game.StarterGui:SetCore(
-    "SendNotification",
-    {
-	Title = "  😎 ",
-	Text = "Loading...",
-}
 )
 
 wait(0.5)
@@ -510,7 +535,9 @@ ExtraSection5:NewButton("Auto Lettuce", "Auto Eat Lettuce", function()
 end)
 
 
-
+TeleportSection:NewButton("db skate park", "db skate park", function(lol)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-555.507568, 43.0628357, -1717.12805, 0.99697876, 3.38111299e-08, -0.0776749402, -3.49526488e-08, 1, -1.33366127e-08, 0.0776749402, 1.60112652e-08, 0.99697876)
+	end)
 TeleportSection:NewButton("Admin Base", "Admin Base", function(bool)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(139.815933, -22.9016266, -136.737762, 0.0339428484, -7.90177737e-08, 0.999423802, -4.7851227e-08, 1, 8.06884728e-08, -0.999423802, -5.0562452e-08, 0.0339428484)
     end)
