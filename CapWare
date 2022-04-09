@@ -1,16 +1,10 @@
 --Untitled Hood
 --key system
 
-local ClientId = game:GetService("RbxAnalyticsService"):GetClientId()
-local Hwid = {
-    [1] = "",
-	[""] = 1,
-}
 local Key = {
     [1] = "CapWareOnTop"
 }
-local KeyNumber = Hwid[ClientId]
-if Hwid[KeyNumber] == ClientId then
+
 if Key[KeyNumber] == _G.Key then
 	game.StarterGui:SetCore(
     "SendNotification",
