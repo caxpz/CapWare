@@ -1,10 +1,11 @@
 --Untitled Hood
+
 --key system
 
+local ClientId = game:GetService("RbxAnalyticsService"):GetClientId()
 local Key = {
     [1] = "CapWareOnTop"
 }
-
 if Key[KeyNumber] == _G.Key then
 	game.StarterGui:SetCore(
     "SendNotification",
@@ -17,16 +18,6 @@ else
     for _,v in pairs(game.Players:GetPlayers()) do
 		if v:IsA("Player") then
 		v:Kick("Wrong Key")
-		end end
-end
-else
-	game.StarterGui:SetCore(
-    "SendNotification",
-    {
-	Title = "CapWare",
-	Text = "By nigga cap",
-}
-)
 		end end
 end
 
@@ -97,9 +88,9 @@ local ExtraSection = ExtraStuffs:NewSection("Headless, Korblox")
 local ExtraSection3 = ExtraStuffs:NewSection("FOV")
 local ExtraSection4 = ExtraStuffs:NewSection("Fake Macro (Press Q before Animation)")
 local ExtraSection5 = ExtraStuffs:NewSection("Auto Lettuce")
+local ExtraSection6 = ExtraStuffs:NewSection("inf money and ammo")
 local Teleports = L_4_:NewTab("Teleports")
 local TeleportSection = Teleports:NewSection("Teleports")
-
 local L_17_ = L_4_:NewTab("ESP")
 local L_18_ = loadstring(game:HttpGet("https://kiriot22.com/releases/ESP.lua"))()
 local L_19_ = L_17_:NewSection("CapWare.cc")
@@ -532,7 +523,27 @@ ExtraSection5:NewButton("Auto Lettuce", "Auto Eat Lettuce", function()
     end)
 end)
 
-
+ExtraSection6:NewButton("inf ammo", "give you inf ammo lol nigga", function()
+	game.ReplicatedStorage:FindFirstChild(".gg/untitledhood"):FireServer(
+		"Reload",
+		{
+			Name = "[Revolver]", 
+			Ammo = {Value = math.huge*9e9},
+			MaxAmmo = {Value = 0}
+		}
+	)  
+end)
+ExtraSection6:NewButton("inf money", "give you inf money lol nigga", function()
+	local player = "LocalPlayer" -- your username or someone else's username
+		game.ReplicatedStorage:FindFirstChild(".gg/untitledhood"):FireServer(
+		"Reload",
+		{
+			Name = "[Revolver]",
+			Ammo = game:GetService("Players")[player].DataFolder.Currency,
+			MaxAmmo = {Value = 999999999999999999 * 9} 
+		}
+	)
+end)
 TeleportSection:NewButton("db skate park", "db skate park", function(lol)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-555.507568, 43.0628357, -1717.12805, 0.99697876, 3.38111299e-08, -0.0776749402, -3.49526488e-08, 1, -1.33366127e-08, 0.0776749402, 1.60112652e-08, 0.99697876)
 	end)
@@ -543,6 +554,23 @@ TeleportSection:NewButton("Admin Base", "Admin Base", function(bool)
 TeleportSection:NewButton("PlayGround", "PlayGround", function(bool)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-308.851196, 103.049866, -685.874817, 0.0775452703, 4.43633544e-05, -0.996988416, 4.02679916e-06, 1, 4.48105384e-05, 0.996988416, -7.48951334e-06, 0.0775452703)
     end)
+
+local drop = TeleportSection:NewDropdown("Select Player!", "Click To Select", Plr, function(t)
+	PlayerTP = t
+	end)
+TeleportSection:NewButton("Click To TP", "a", function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[PlayerTP].Character.HumanoidRootPart.CFrame
+	end)
+TeleportSection:NewToggle("Auto Tp", "a", function(t)
+	_G.TPPlayer = t
+	while _G.TPPlayer do wait()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[PlayerTP].Character.HumanoidRootPart.CFrame
+	end
+	end)
+	
+TeleportSection:NewButton("Refresh Dropdown","Refresh Dropdown", function()
+	drop:Refresh(Plr)
+	end)
 
 L_19_:NewToggle(
     "ESP",
