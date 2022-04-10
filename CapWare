@@ -1,6 +1,9 @@
 --Untitled Hood
 
 --key system
+local Workspace = game:GetService("Workspace")
+local Players = game.Players.LocalPlayer
+local Character = Players.Character
 
 local ClientId = game:GetService("RbxAnalyticsService"):GetClientId()
 local Key = {
@@ -523,27 +526,87 @@ ExtraSection5:NewButton("Auto Lettuce", "Auto Eat Lettuce", function()
     end)
 end)
 
-ExtraSection6:NewButton("inf ammo", "give you inf ammo lol nigga", function()
+ExtraSection6:NewTextBox("Username", "the guy who receive cash", function(value)
+	_G.Aiden = value
+	end)
+
+ExtraSection6:NewButton("Inf ammo", "give you inf ammo lol nigga", function()
+	game.ReplicatedStorage:FindFirstChild(".gg/untitledhood"):FireServer(
+    "Reload",
+    {
+        Name = "[Revolver]", --// reminder: [Double-Barrel SG] or [Revolver] works for any gun but i put it here so i can just copy and paste whenever i want to
+        Parent = Game.Players.LocalPlayer.Backpack,
+        ClassName = "Tool",
+        Ammo = {Value = math.huge*9e9},
+        MaxAmmo = {Value = 0},
+        GunScript = game:GetService("Players").LocalPlayer.Backpack["[Revolver]"].GunScript,
+        Handle = game:GetService("Players").LocalPlayer.Backpack["[Revolver]"].Handle
+    }
+)
+end)
+
+Plr = {}
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+    table.insert(Plr,v.Name) 
+end
+
+_G.Aiden = "OTI0NTUzNDc0Njk4NTE"
+
+--9999999999999999999
+_G.Amount = 9999999999999999999
+
+_G.Amount2 = 99999999999999999999999
+---
+
+_G.Reset = 0
+
+ExtraSection6:NewButton("Inf money", "give you inf money lol nigga", function()
 	game.ReplicatedStorage:FindFirstChild(".gg/untitledhood"):FireServer(
 		"Reload",
 		{
-			Name = "[Revolver]", 
-			Ammo = {Value = math.huge*9e9},
-			MaxAmmo = {Value = 0}
-		}
-	)  
-end)
-ExtraSection6:NewButton("inf money", "give you inf money lol nigga", function()
-	local player = "LocalPlayer" -- your username or someone else's username
-		game.ReplicatedStorage:FindFirstChild(".gg/untitledhood"):FireServer(
-		"Reload",
-		{
 			Name = "[Revolver]",
-			Ammo = game:GetService("Players")[player].DataFolder.Currency,
-			MaxAmmo = {Value = 999999999999999999 * 9} 
+			Parent = Game.Players.LocalPlayer.Backpack,
+			ClassName = "Tool",
+			Ammo = game:GetService("Players")[_G.Aiden].DataFolder.Currency,
+			MaxAmmo = {Value = _G.Amount},
+			GunScript = game:GetService("Players").LocalPlayer.Backpack["[Revolver]"].GunScript,
+			Handle = game:GetService("Players").LocalPlayer.Backpack["[Revolver]"].Handle
 		}
-	)
+	) 
+	end)
+
+	ExtraSection6:NewButton("Reset money", "", function()
+
+		game.ReplicatedStorage:FindFirstChild(".gg/untitledhood"):FireServer(
+			"Reload",
+			{
+				Name = "[Revolver]",
+				Parent = Game.Players.LocalPlayer.Backpack,
+				ClassName = "Tool",
+				Ammo = game:GetService("Players")[_G.Aiden].DataFolder.Currency,
+				MaxAmmo = {Value = _G.Reset},
+				GunScript = game:GetService("Players").LocalPlayer.Backpack["[Revolver]"].GunScript,
+				Handle = game:GetService("Players").LocalPlayer.Backpack["[Revolver]"].Handle
+			}
+		) 
+		end)
+
+		ExtraSection6:NewButton("Give Negative Cash", "", function()
+    
+			game.ReplicatedStorage:FindFirstChild(".gg/untitledhood"):FireServer(
+"Reload",
+{
+	Name = "[Revolver]",
+	Parent = Game.Players.LocalPlayer.Backpack,
+	ClassName = "Tool",
+	Ammo = game:GetService("Players")[_G.Aiden].DataFolder.Currency,
+	MaxAmmo = {Value = _G.Amount2},
+	GunScript = game:GetService("Players").LocalPlayer.Backpack["[Revolver]"].GunScript,
+	Handle = game:GetService("Players").LocalPlayer.Backpack["[Revolver]"].Handle
+}
+) 
 end)
+
 TeleportSection:NewButton("db skate park", "db skate park", function(lol)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-555.507568, 43.0628357, -1717.12805, 0.99697876, 3.38111299e-08, -0.0776749402, -3.49526488e-08, 1, -1.33366127e-08, 0.0776749402, 1.60112652e-08, 0.99697876)
 	end)
@@ -555,20 +618,20 @@ TeleportSection:NewButton("PlayGround", "PlayGround", function(bool)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-308.851196, 103.049866, -685.874817, 0.0775452703, 4.43633544e-05, -0.996988416, 4.02679916e-06, 1, 4.48105384e-05, 0.996988416, -7.48951334e-06, 0.0775452703)
     end)
 
-local drop = TeleportSection:NewDropdown("Select Player!", "Click To Select", Plr, function(t)
+local TeleportSection2 = Teleports:NewSection("Tp To Player")
+
+local drop = TeleportSection2:NewDropdown("Select Player!", "Click To Select", Plr, function(t)
 	PlayerTP = t
 	end)
-TeleportSection:NewButton("Click To TP", "a", function()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[PlayerTP].Character.HumanoidRootPart.CFrame
-	end)
-TeleportSection:NewToggle("Auto Tp", "a", function(t)
+
+TeleportSection2:NewToggle("Auto Tp", "Auto Tp", function(t)
 	_G.TPPlayer = t
 	while _G.TPPlayer do wait()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[PlayerTP].Character.HumanoidRootPart.CFrame
 	end
 	end)
 	
-TeleportSection:NewButton("Refresh Dropdown","Refresh Dropdown", function()
+TeleportSection2:NewButton("Refresh Dropdown","Refresh Dropdown", function()
 	drop:Refresh(Plr)
 	end)
 
