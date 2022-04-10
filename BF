@@ -3,7 +3,7 @@
 --[[
 By CapWare
 ]]
-    
+
 --key system
 local Workspace = game:GetService("Workspace")
 local Players = game.Players.LocalPlayer
