@@ -7,7 +7,7 @@ local Character = Players.Character
 
 local ClientId = game:GetService("RbxAnalyticsService"):GetClientId()
 local Key = {
-    [1] = "CapWareOnTop"
+    [1] = "CapWareVeryGood"
 }
 if Key[KeyNumber] == _G.Key then
 	game.StarterGui:SetCore(
