@@ -1387,6 +1387,19 @@ AutoFarm:AddButton("Refresh Weapon",function()
         end
     end)
 
+    Misc1:AddToggle("Reduce Gpu Usage",false, function(state)
+        if state == true then
+            game:GetService("UserInputService").WindowFocused:connect(function()
+            game.RunService:Set3dRenderingEnabled(true)
+                end)
+            game:GetService("UserInputService").WindowFocusReleased:connect(function()
+            game.RunService:Set3dRenderingEnabled(false)
+                end)
+            else
+            end
+        end)
+
+
     local Misc4 = Misc:CreateSector("Teams", "Right")
 
     Misc4:AddButton("Join Pirates Team",function()
