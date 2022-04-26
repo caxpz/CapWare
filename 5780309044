@@ -1,5 +1,18 @@
 -- Stands Awakening
 
+local CoreGui = game:GetService("CoreGui")
+local Players = game:GetService("Players")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local X, Y = 0, 0
+
+--// Exploit Fix \\--
+if not pcall(function() return syn.protect_gui end) then
+    syn = {}
+    syn.protect_gui = function(A_1)
+        A_1.Parent = CoreGui
+    end
+end
+
 --Notification Function
 local function Notification(Title, Text)
     game.StarterGui:SetCore("SendNotification", {
@@ -61,7 +74,12 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local Window = Library.CreateLib("🧢 CapWare | Stands Awakening", "Ocean")
 local Main = Window:NewTab("Main")
 local Items = Main:NewSection("Items")
-local Miscs = Main:NewSection("Miscs")
+local MainMiscs = Main:NewSection("Miscs")
+local Miscs = Window:NewTab("Misc")
+local MiscSection = Miscs:NewSection("AutoClicker")
+local MiscSection2 = Miscs:NewSection("Miscs")
+local Credits = Window:NewTab("Credits")
+local CreditSection = Credits:NewSection("By. caxpzo#0068")
 
 Items:NewToggle("Bring Items","Bring Items For You", function(value)
 _G.BringItems = value
@@ -87,7 +105,7 @@ while _G.ItemsFarm do wait() -- Toggle
   end
 end)
 
-Miscs:NewButton("Anti Time Stop", "",function()
+MainMiscs:NewButton("Anti Time Stop", "",function()
     local meta = getrawmetatable(game)
 make_writeable(meta)
 
@@ -104,10 +122,107 @@ if method == "FireServer" and tostring(self) == "Anchor" then
 end)
 end)
 
-Miscs:NewLabel("Need Gold Experience Requiem")
-Miscs:NewToggle("Inf Reflect","",function(value)
+MainMiscs:NewLabel("Need Gold Experience Requiem")
+MainMiscs:NewToggle("Inf Reflect","",function(value)
     _G.InfReflect = value
     while _G.InfReflect do wait()
         game:GetService("ReplicatedStorage").Main.Input:FireServer("Alternate", "RTZ", true)
     end
+end)
+
+MiscSection:NewLabel("Cant Stop (Rejoin After use)")
+MiscSection:NewToggle("AutoClick","yes",function(value)
+    _G.AutoClicker = value
+    while _G.AutoClicker do wait()
+        VirtualInputManager:SendMouseButtonEvent(X, Y, 0, true, game, 1)
+        VirtualInputManager:SendMouseButtonEvent(X, Y, 0, false, game, 1)
+end
+end)
+
+MiscSection2:NewSlider("WalkSpeed", "", 200, 0, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+MiscSection2:NewSlider("JumpPower", "", 200, 0, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+MiscSection2:NewButton("Rejoin","", function()
+    wait(3)
+    game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
+
+MiscSection2:NewButton("Low Server Hop","", function()
+    game.StarterGui:SetCore(
+"SendNotification",
+{
+Title = "Server Hopping",
+Text = "might take a few mins",
+}
+)
+    local PlaceID = game.PlaceId
+    local AllIDs = {}
+    local foundAnything = ""
+    local actualHour = os.date("!*t").hour
+    local Deleted = false
+    function TPReturner()
+        local Site;
+        if foundAnything == "" then
+            Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
+        else
+            Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
+        end
+        local ID = ""
+        if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+            foundAnything = Site.nextPageCursor
+        end
+        local num = 0;
+        for i,v in pairs(Site.data) do
+            local Possible = true
+            ID = tostring(v.id)
+            if tonumber(v.maxPlayers) > tonumber(v.playing) then
+                for _,Existing in pairs(AllIDs) do
+                    if num ~= 0 then
+                        if ID == tostring(Existing) then
+                            Possible = false
+                        end
+                    else
+                        if tonumber(actualHour) ~= tonumber(Existing) then
+                            local delFile = pcall(function()
+                                -- delfile("NotSameServers.json")
+                                AllIDs = {}
+                                table.insert(AllIDs, actualHour)
+                            end)
+                        end
+                    end
+                    num = num + 1
+                end
+                if Possible == true then
+                    table.insert(AllIDs, ID)
+                    wait()
+                    pcall(function()
+                        -- writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
+                        wait()
+                        game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
+                    end)
+                    wait(4)
+                end
+            end
+        end
+    end
+    function Teleport() 
+        while wait() do
+            pcall(function()
+                TPReturner()
+                if foundAnything ~= "" then
+                    TPReturner()
+                end
+            end)
+        end
+    end
+    Teleport()
+end)
+
+CreditSection:NewKeybind("Keybind", "", Enum.KeyCode.RightControl, function()
+	Library:ToggleUI()
 end)
