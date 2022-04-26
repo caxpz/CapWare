@@ -122,6 +122,14 @@ if method == "FireServer" and tostring(self) == "Anchor" then
 end)
 end)
 
+MainMiscs:NewLabel("Need Gold Experience Requiem")
+MainMiscs:NewToggle("Inf Reflect","",function(value)
+    _G.InfReflect = value
+    while _G.InfReflect do wait()
+        game:GetService("ReplicatedStorage").Main.Input:FireServer("Alternate", "RTZ", true)
+    end
+end)
+
 MiscSection:NewLabel("Cant Stop (Rejoin After use)")
 MiscSection:NewToggle("AutoClick","yes",function(value)
     _G.AutoClicker = value
