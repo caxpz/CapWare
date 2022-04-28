@@ -1,4 +1,8 @@
--- Stands Awakening
+--// Stands Awakening
+
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+ end
 
 local CoreGui = game:GetService("CoreGui")
 local Players = game:GetService("Players")
@@ -13,6 +17,12 @@ if not pcall(function() return syn.protect_gui end) then
     end
 end
 
+--// local Player
+Plr = {}
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+    table.insert(Plr,v.Name) 
+end
+
 --Notification Function
 local function Notification(Title, Text)
     game.StarterGui:SetCore("SendNotification", {
@@ -25,18 +35,20 @@ end
 game.StarterGui:SetCore(
     "SendNotification",
     {
-	Title = "😎",
-	Text = "Loading...",
+	Title = "Loading...",
+	Text = "",
+    Icon = "http://www.roblox.com/asset/?id=4503259632";
 }
 )
 
-wait(0.5)
+wait(3)
 
 game.StarterGui:SetCore(
     "SendNotification",
     {
 	Title = "CapWare",
 	Text = "By nigga cap",
+    Icon = "http://www.roblox.com/asset/?id=9485792326";
 }
 )
 
@@ -52,7 +64,7 @@ setclipboard("https://discord.gg/QaJEbeKPHQ")
 }
 )
 
-wait(2)
+wait(0.5)
 
 --Webhook Function
 local HttpService = game:GetService("HttpService");
@@ -76,7 +88,7 @@ local Main = Window:NewTab("Main")
 local Items = Main:NewSection("Items")
 local MainMiscs = Main:NewSection("Miscs")
 local Miscs = Window:NewTab("Misc")
-local MiscSection = Miscs:NewSection("AutoClicker")
+local MiscSection = Miscs:NewSection("Auto Farm Sans Quest")
 local MiscSection2 = Miscs:NewSection("Miscs")
 local Credits = Window:NewTab("Credits")
 local CreditSection = Credits:NewSection("By. caxpzo#0068")
@@ -130,14 +142,28 @@ MainMiscs:NewToggle("Inf Reflect","",function(value)
     end
 end)
 
-MiscSection:NewLabel("Cant Stop (Rejoin After use)")
 MiscSection:NewToggle("AutoClick","yes",function(value)
     _G.AutoClicker = value
-    while _G.AutoClicker do wait()
+    while _G.AutoClicker do wait(0.5)
         VirtualInputManager:SendMouseButtonEvent(X, Y, 0, true, game, 1)
         VirtualInputManager:SendMouseButtonEvent(X, Y, 0, false, game, 1)
 end
 end)
+
+local drop = MiscSection:NewDropdown("Select Player!", "Click To Select", Plr, function(t)
+	PlayerTP = t
+	end)
+
+MiscSection:NewToggle("Auto Tp", "Auto Tp", function(t)
+	_G.TPPlayer = t
+	while _G.TPPlayer do wait()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[PlayerTP].Character.HumanoidRootPart.CFrame
+	end
+	end)
+	
+MiscSection:NewButton("Refresh Dropdown","Refresh Dropdown", function()
+	drop:Refresh(Plr)
+	end)
 
 MiscSection2:NewSlider("WalkSpeed", "", 200, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
